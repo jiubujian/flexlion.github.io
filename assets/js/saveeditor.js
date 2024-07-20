@@ -243,6 +243,8 @@ function loadSave(){
 	document.getElementById("player_rank_exp_holder").value = SaveJson["server"]["PlayerRankExp"];
     document.getElementById("money_holder").value = SaveJson["server"]["Money"];
     document.getElementById("snail_holder").value = SaveJson["server"]["Shell"];
+    document.getElementById("weapon_license_holder").value = SaveJson["server"]["WeaponLicense"];
+    document.getElementById("gold_weapon_license_holder").value = SaveJson["server"]["GoldWeaponLicense"];
 
     const sdodr_prlz = document.getElementById("sdodr_prlz_holder");
     const sdodr_keys = document.getElementById("sdodr_keys_holder");
@@ -793,6 +795,18 @@ async function load_options(){
         if(snail_holder.value > 999) snail_holder.value = 999;
         if(snail_holder.value < 0) snail_holder.value = 0;
         SaveEdits["default_edits"]["snails"] = snail_holder.value;
+    });
+    $('.weapon_license_holder').on("propertychange change click keyup input paste", function(event){
+        let weapon_license_holder = event.target;
+        if(weapon_license_holder.value > 999) weapon_license_holder.value = 999;
+        if(weapon_license_holder.value < 0) weapon_license_holder.value = 0;
+        SaveEdits["default_edits"]["WeaponLicense"] = weapon_license_holder.value;
+    });
+    $('.gold_weapon_license_holder').on("propertychange change click keyup input paste", function(event){
+        let gold_weapon_license_holder = event.target;
+        if(gold_weapon_license_holder.value > 999) gold_weapon_license_holder.value = 999;
+        if(gold_weapon_license_holder.value < 0) gold_weapon_license_holder.value = 0;
+        SaveEdits["default_edits"]["GoldWeaponLicense"] = gold_weapon_license_holder.value;
     });
     $('.sdodr_prlz_holder').on("propertychange change click keyup input paste", function(event){
         let sdodr_prlz_holder = event.target;
